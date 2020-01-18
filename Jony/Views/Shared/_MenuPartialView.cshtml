@@ -1,0 +1,29 @@
+﻿@model Jony2.Models.Menu
+@{
+    ViewData["Title"] = "_MenuPartialView";
+}
+
+@{
+    if (!Model.SubMenus.Any())
+    {
+        <li><a asp-action="@Model.ActionName" asp-controller="@Model.ControllerName">@Model.Name</a></li>
+    }
+
+    else if (Model.SubMenus.Any())
+    {
+        <li>
+            <a href="#">@Model.Name <i class="ti-angle-down"></i></a>
+            <ul class="submenu">
+                @foreach (var submenu in Model.SubMenus)
+                {
+                    <li><a asp-action="@Model.ActionName" asp-controller="@Model.ControllerName">@Model.Name</a></li>
+
+                }
+
+            </ul>
+        </li>
+    }
+}
+
+                                            
+

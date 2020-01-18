@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Jony2.Models.Service>
+@{
+    ViewData["Title"] = "Default";
+}
+
+<!-- service_area start  -->
+<div class="service_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="section_title mb-50">
+                    <h3>My Services</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+
+                await Html.RenderPartialAsync("_ServicePartialView", item);
+
+
+                @*<div class="col-lg-4 col-md-6">
+                    <div class="single_service text-center">
+                        <div class="icon">
+                            <img src="img/svg_icon/@item.Icon" alt="">   Partiala cixarilmamisdan evvel
+                        </div>
+                        <h3>
+                            @item.Title
+                        </h3>
+                        <p>@item.ShortDescription</p>
+                    </div>
+                </div>*@
+            }
+
+
+        </div>
+    </div>
+</div>
+<!-- service_area end  -->
